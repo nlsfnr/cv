@@ -11,6 +11,7 @@
 % an alternative to Layaureo can be ** \usepackage{fullpage} **
 \usepackage{supertabular} 				%for Grades
 \usepackage{titlesec}					%custom \section
+\usepackage{tabularx}
 
 %Setup hyperref package, and colours for links
 \usepackage{hyperref}
@@ -64,19 +65,85 @@
 
 \end{tabular}
 
-%Section: Work Experience at the top
 \section{Work Experience}
-\begin{tabular}{r|p{11cm}}
+\begin{tabularx}{\textwidth}{ r | X }
 
-\textsc{July \& August 2020}& \textsc{Atos} \\\textsc{}&\emph{Internship -
-    consulting for data science and artificial intelligence}\\&\footnotesize{
+  \begin{tabular}{r}
+      \textsc{July \&} \\
+      \textsc{August} \\
+      \textsc{2020}
+  \end{tabular} &
+
+  \begin{tabular}{p{0.8\textwidth}}
+    \textsc{Atos} \\
+    \emph{Internship - Consulting for data science and artificial intelligence} \\
     \vspace{-2mm}
     \begin{itemize}[leftmargin=*]
-        \item
+
+      \item Development of a cross-modal teacher-student model to detect
+          humans through walls based on radio signals as part of a project for
+          a large public ministry in Germany (undisclosed).
+
+      \item I was tasked with developing (1) the data pipeline that
+          transformed the radio signals into a format that was suitable for
+          (2) the convolutional neural network which detectects humans and
+          predicts their poses based on (3) a training dataset that was hosted
+          in the Google Cloud (GCP) for convenient and scaleable training.
+
     \end{itemize}
     \vspace{-5mm}
-}\\\multicolumn{2}{c}{}\\
-\end{tabular}
+  \end{tabular} \\
+  \multicolumn{2}{c}{} \\
+
+  \begin{tabular}{r}
+      \textsc{Septenmer} \\
+      \textsc{2019}
+  \end{tabular} &
+
+  \begin{tabular}{p{0.8\textwidth}}
+    \textsc{Atos} \\
+    \emph{Internship - Consulting for data science and artificial intelligence}\\
+    \footnotesize{
+    \vspace{-2mm}
+    \begin{itemize}[leftmargin=*]
+
+        \item Development of software that uses machine learning to improve the
+            efficiency of a production line for electrical parts for a globally
+            known producer of machinery and electronics.
+
+        \item By making heavy use of data preprocessing and hyperparameter
+            optimization, my approach was able to beat all alternatives and was
+            chosen to be deployed into production.
+
+    \end{itemize}
+    \vspace{-5mm}
+    }
+    \end{tabular} \\
+  \multicolumn{2}{c}{}\\
+
+  \begin{tabular}{r}
+      \textsc{August \&} \\
+      \textsc{Septenmer} \\
+      \textsc{2018}
+  \end{tabular} &
+
+  \begin{tabular}{p{0.8\textwidth}}
+    \textsc{Padberg \& Partners} \\
+    \emph{Internship - Web development and task automation}\\
+    \footnotesize{
+    \vspace{-2mm}
+    \begin{itemize}[leftmargin=*]
+
+        \item Contributions to the open-source marketing platform
+            \textit{Mautics} and development of scripts to automate migrations
+            from proprietary software to open-source alternatives.
+
+    \end{itemize}
+    \vspace{-5mm}
+  }
+  \end{tabular} \\
+
+\end{tabularx}
 
 %Section: Education
 \section{Education}
@@ -97,7 +164,23 @@
 \end{tabular}
 
 
-%Section: Languages
+\section{Software}
+\renewcommand{\thefootnote}{*}
+\begin{threeparttable}
+\begin{tabular}{rl}
+    DevOps:     & Docker, Docker-Compose, Nginx, PostgreSQL, Bash, SSH, Make, ... \\
+    Cloud:      & Amazon Web Services (AWS), Google Cloud (GCP), Digital Ocean
+    \vspace{2mm} \\
+    Python:     & Pandas, Scikit-Learn, Keras, Tensorflow, OpenCV, Flask, SQLAlchemy, \\
+                & Django, Pytest, ... \\
+    JavaScript: & Node, Webpack, Vue.js, Vuex, Vue Router, Vuetify, Axios, Express, ... \\
+    Others:     & Java, SQL, C, \LaTeX, Scheme\footnotemark, Prolog\footnotemark, Haskell\footnotemark
+\end{tabular}
+\begin{tablenotes}
+    \small\item[*] Not on a production level
+  \end{tablenotes}
+\end{threeparttable}
+
 \section{Languages}
 \begin{tabular}{rl}
 \textsc{German:}  & Native \\
@@ -105,24 +188,7 @@
 \textsc{Spanish:} & Good \\
 \end{tabular}
 
-\section{Software}
-\renewcommand{\thefootnote}{*}
-\begin{threeparttable}
-\begin{tabular}{rl}
-    DevOps:     & Docker, Docker-Compose, Nginx, PostgreSQL, Bash, SSH, Make \\
-    Cloud:      & Amazon Web Services (AWS), Google Cloud (GCP), Digital Ocean
-    \vspace{2mm} \\
-    Python:     & Pandas, Scikit-Learn, Keras, Tensorflow, OpenCV, Flask, SQLAlchemy, \\
-                & Django, Pytest \\
-    JavaScript: & Node, Webpack, Vue.js, Vuex, Vue Router, Vuetify, Axios, Express \\
-    Others:     & Java, SQL, C, Scheme\footnotemark, Prolog\footnotemark, Haskell\footnotemark, \LaTeX
-\end{tabular}
-\begin{tablenotes}
-    \item[*] Not on a production level
-  \end{tablenotes}
-\end{threeparttable}
-
 \section{Interests and Extracurricular Activities }
-Finance, Statistical, Games Theory, Programming, Sports, Soccer, Literature, Technology.  \\
+Ultra-Marathons, Systems design, 3D animation,
 
 \end{document}
