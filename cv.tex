@@ -9,7 +9,6 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[big]{layaureo} 				%better formatting of the A4 page
 % an alternative to Layaureo can be ** \usepackage{fullpage} **
-\usepackage{supertabular} 				%for Grades
 \usepackage{titlesec}					%custom \section
 \usepackage{tabularx}
 
@@ -31,12 +30,20 @@
 \textblockorigin{2mm}{0.65\paperheight}
 \setlength{\parindent}{0pt}
 
+\usepackage{longtable}
+\usepackage{multicol}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
 %--------------------BEGIN DOCUMENT----------------------
 \begin{document}
-
-\pagestyle{empty} % non-numbered pages
-
-\font\fb=''[cmr10]'' %for use with \LaTeX command
 
 %--------------------TITLE-------------
 \par{
@@ -74,15 +81,16 @@
     \vspace{-2mm}
     \begin{itemize}[leftmargin=*]
 
-      \item Development of a cross-modal teacher-student model to detect
-          humans through walls based on radio signals as part of a project for
-          a large public ministry in Germany (undisclosed).
+      \item Development of a cross-modal teacher-student model to detect humans
+          through walls based on radio signals as part of a project for the
+            German military, more precisely the \emph{BWI}.
 
-      \item I was tasked with developing (1) the data pipeline that
-          transformed the radio signals into a format that was suitable for
-          (2) the convolutional neural network which detects humans and
-          predicts their poses based on (3) a training dataset that was hosted
-          in the Google Cloud (GCP) for convenient and scaleable training.
+      \item I was tasked with developing a complex data pipeline involving both
+          traditional statistical methods and modern machine learning models.
+
+        \item As part of our SCRUM cycle, I was regularly chosen to present our
+            team's work directly to the customer and to manage further
+            communication.
 
     \end{itemize}
   \end{tabular}
@@ -101,8 +109,8 @@
     \begin{itemize}[leftmargin=*]
 
         \item Development of software that uses machine learning to improve the
-            efficiency of a production line for electrical parts for a globally
-            known producer of machinery and electronics.
+            efficiency of a production line for electrical parts in a Siemens
+            factory.
 
         \item By making heavy use of data preprocessing and hyper-parameter
             optimization, my approach was able to beat all alternatives and was
@@ -135,36 +143,74 @@
 
 \end{tabularx}
 
-%Section: Education
 \section{Education}
 
-\begin{tabular}{r|p{12cm}}
+\begin{longtable}{r|p{12cm}}
 
                     & \textsc{University} \\
                     & \emph{MEng (Hons) Computer Science with Artificial
-                      Intelligence, bachelor with first-class honours} \\
+                      Intelligence} \\
 \textsc{2018-Now}   & University of York (Russel Group) | York, North Yorkshire, UK \\
+                    & \begin{tabular}{p{0.77\textwidth}}
+                        \vspace{-2mm}
+                        \begin{itemize}[leftmargin=*]
+
+                            \item I am currently enrolled in the fourth and
+                                final year of the degree.
+
+                            \item In each of the three previous years I achieved
+                                a grade average equal to the highest mark, i.e.
+                                \emph{first class honors}.
+
+                            \item Whilst academia provides an interesting
+                                theoretical background, I derive the vast
+                                majority of my knowledge and skills from
+                                extracurricular studies and projects.
+
+                        \vspace{-4mm}
+                        \end{itemize}
+                      \end{tabular} \\
 \multicolumn{2}{c}{}\\
+\multicolumn{2}{c}{}\\
+
                     & \textsc{School} \\
                     & \emph{German \emph{Abitur} with a grade average of 1.6 (1
                     is best, 6 is worst)} \\
 \textsc{2016-2017}  & Landheim Ammersee | Schondorf am Ammersee, Bavaria, Germany \\
-\textsc{2015-2016}  & Colegio Teresiano de Lagos de Moreno |  Lagos de Moreno, Mexico \\
+\textsc{2015-2016}  & Colegio Teresiano de Lagos de Moreno | Lagos de Moreno, Mexico \\
 \textsc{2011-2015}  & Landheim Ammersee | Schondorf am Ammersee, Bavaria, Germany \\
 \textsc{2006-2011}  & Free Steiner School Landsberg | Landsberg am Lech, Bavaria, Germany \\
 
-\end{tabular}
-
+\end{longtable}
 
 \section{Skills}
 \renewcommand{\thefootnote}{*}
 \begin{threeparttable}
-\begin{tabular}{ r p{0.8\textwidth} }
-    Software:   & Linux, Git, Docker, Docker-Compose, Nginx, PostgreSQL, SSH, Make, Vim, ... \\
-    Cloud:      & Amazon Web Services (AWS), Google Cloud (GCP), Digital Ocean \vspace{2mm} \\
-    Python:     & Numpy, Pandas, Scikit-Learn, Tensorflow, Keras, Pytest, SQLAlchemy, Jupyter, OpenCV, Flask, Django, ... \\
-    JavaScript: & Node, Webpack, Vue.js, Vuex, Vue Router, Vuetify, Axios, Express, ... \\
-    Others:     & Java, SQL, C, Bash, \LaTeX, Rust\footnotemark, Scheme\footnotemark, Prolog\footnotemark, Haskell\footnotemark
+\begin{tabular}{ r p{0.73\textwidth} }
+
+    General: & Extremely self reliant, \\
+
+    Data science: & Data visualization, unstructured data, data mining, data
+    pipelines, exploratory data analysis, presentation and communication \\
+
+    Machine learning: & Artificial neural networks, network architectures,
+    hyper-parameter optimization, XGBoost, linear regression, PCA, clustering,
+    feature engineering \\
+
+    Python: & Numpy, Pandas, Scikit-Learn, Tensorflow, Keras, Pytest, Jupyter,
+    SQLAlchemy, OpenCV, Flask, Django \\
+
+    JavaScript: & Node, Webpack, Vue.js, Vuex, Vue Router, Vuetify, Axios,
+    Express \\
+
+    Other languages: & Java, Rust, SQL, C, Bash, Haskell\footnotemark,
+    Scheme\footnotemark, Prolog\footnotemark, \LaTeX \\
+
+    Software \& DevOps: & Linux, Git, Docker, Docker-Compose, Nginx, PostgreSQL, SSH,
+    Make, Vim \\
+
+    Cloud: & Amazon Web Services (AWS), Google Cloud (GCP), Digital Ocean \\
+
 \end{tabular}
 \begin{tablenotes}
     \small\item[*] Not on a production level
@@ -178,8 +224,8 @@
 \textsc{Spanish:} & Good \\
 \end{tabular}
 
-\section{Interests and Extracurricular Activities }
+\section{Interests and other Extracurricular Activities }
 Dev-Ops, continuous integration, game theory, evolutionary algorithms, system
-design, 3D animation, ultra-marathons, rowing and free diving.
+design, 3D animation, ultra-marathons, powerlifting, rowing and free diving.
 
 \end{document}
