@@ -1,11 +1,17 @@
+#!/usr/bin/env python3
+"""Generates a .tex file from a template using Jinja. This file can then be
+compiled with e.g. pdflatex."""
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import yaml
 import click
 
 
 @click.command()
-@click.option('--output', '-o', default='.generated.tex')
-@click.option('--data', '-d', default='data.yaml')
+@click.option('--output', '-o', default='.generated.tex',
+              help='Name of the generated tex-file.')
+@click.option('--data', '-d', default='data.yaml',
+              help='Name of the yaml-file containing the data required to '
+              'populate the template.')
 def main(output: str, data: str) -> None:
     with open(data) as fh:
         args = yaml.safe_load(fh)
@@ -21,7 +27,7 @@ def main(output: str, data: str) -> None:
         comment_start_string='%{',
         comment_end_string='%}',
     )
-    template = env.get_template('cv.tex.jinja')
+    template = env.get_template('cv.tex')
     template.stream(args).dump(output)
 
 
