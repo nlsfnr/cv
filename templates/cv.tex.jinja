@@ -42,16 +42,17 @@
 % Document structure
 \begin{document}
 
-\TITLE{Nicolas Forstner}
+\TITLE{\VAR{info.name}}
 
 \section{Personal information}
 \begin{tabular}{rll}
-    \textsc{Mobile:}   & +44 7379 400253\\
-    \textsc{Email:}    & \href{mailto:nls.forstner@gmail.com}{nls.forstner@gmail.com} \\
-    \textsc{Homepage:} & \href{https:nforstner.com}{nforstner.com} \\
-    \textsc{Address:}  & 2 Nelson's Yard, Dennis St. \\
-                       & YO1 9AA, York \\
-                       & North Yorkshire, UK \\
+    \textsc{Mobile:}   & \VAR{info.phone} \\
+    \textsc{Email:}    & \href{mailto:\VAR{info.email}}{\VAR{info.email}} \\
+    \textsc{Homepage:} & \href{https:\VAR{info.web}}{\VAR{info.web}} \\
+    \textsc{Address:}
+    \BLOCK{ for line in info.addr }
+        & \VAR{line} \\
+    \BLOCK{ endfor }
 \end{tabular}
 
 \section{Education}
@@ -171,40 +172,18 @@
 \section{Skills}
 
 \begin{tabular}{ r p{0.73\textwidth} }
-
-    Data science: & Data visualisation, unstructured data, data mining, data
-    pipelines, exploratory data analysis, presentation and communication \\
-
-    Machine learning: & Artificial neural networks, network architectures,
-    hyper-parameter optimisation, XGBoost, linear regression, PCA, clustering,
-    feature engineering \\
-
-    Python: & Numpy, Pandas, Scikit-Learn, PyTorch, Tensorflow, Keras, Pytest,
-    Jupyter, SQLAlchemy, OpenCV, Flask, Django \\
-
-    JavaScript: & Node, Webpack, Vue.js, Vuex, Vue Router, Vuetify, Axios,
-    Express \\
-
-    Other languages: & Rust, Java, SQL, C, Bash, Haskell, Scheme, Prolog,
-    \LaTeX \\
-
-    Software \& DevOps: & Linux, Git, Docker, Docker-Compose, Nginx,
-    PostgreSQL, SSH, Make, Vim \\
-
-    Cloud: & Amazon Web Services (AWS), Google Cloud (GCP), Digital Ocean \\
-
+    \BLOCK{ for skill in skills }
+        \VAR{skill.group}: & \VAR{ ", ".join(skill.examples) } \\
+    \BLOCK{ endfor }
 \end{tabular}
 
 \section{Languages}
 \begin{tabular}{rl}
-    \textsc{English:} & Business level \\
-    \textsc{German:}  & Native \\
+    \BLOCK{ for lang in languages }
+        \textsc{\VAR{lang.name}:} & \VAR{lang.level} \\
+    \BLOCK{ endfor }
 \end{tabular}
 
 \section{Other interests}
-
-Generative adversarial networks, Dev-Ops, continuous integration, game theory,
-evolutionary algorithms, system design, 3D animation, ultra-marathons,
-powerlifting, rowing and free diving.
-
+    \VAR{ ", ".join(interests) }
 \end{document}

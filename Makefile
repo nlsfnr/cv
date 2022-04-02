@@ -1,13 +1,26 @@
-all: cv.pdf cv2.pdf
+PYTHON=/usr/bin/env python3
+NAME=cv
+GENERATED=generated.tex
+AUX_DIR=.aux
 
 
-cv.pdf: cv.tex
-	xelatex cv.tex
-	rm -f cv.log \
-		  cv.out
+all: $(NAME).pdf
 
+$(GENERATED): templates/* *.yaml *.py
+	$(PYTHON) ./build.py \
+		--output=$(GENERATED) \
+		--data data.yaml
 
-cv2.pdf: cv2.tex
-	pdflatex cv2.tex
-	rm -f cv2.log \
-		  cv2.out
+$(NAME).pdf: $(GENERATED)
+	mkdir -p $(AUX_DIR)
+	pdflatex \
+		-output-directory $(AUX_DIR) \
+		-jobname $(NAME) \
+		$(GENERATED) && \
+	mv $(AUX_DIR)/$(NAME).pdf ./
+
+clean:
+	rm -rf \
+		$(NAME).pdf \
+		$(AUX_DIR) \
+		$(GENERATED)
